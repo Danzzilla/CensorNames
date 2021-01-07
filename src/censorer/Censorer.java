@@ -5,7 +5,7 @@ import java.util.*;
 public class Censorer{
    
    public static int censorNames()throws FileNotFoundException{ 
-      Scanner fileIn = new Scanner(new File("Names.txt"));                  //reads file
+      Scanner fileIn = new Scanner(new File("Names.txt"));                   //reads file
       PrintStream fileOut = new PrintStream(new File("CensoredNames.txt"));  //outputs into CensoredNames.txt
       
       String firstName = "";                                                 //Initialize variables
@@ -17,10 +17,11 @@ public class Censorer{
       while(fileIn.hasNext()){                                               //Runs while there is something to read
          firstName = fileIn.next();                                          //stores first word to var firstName
          lastName = fileIn.next();                                           //stores second word to var lastName
+         censored = " ";
          
          fileOut.print(firstName);                                           //prints first name in CensoredNames.txt
          for(int i = 0; i < lastName.length(); i++){                         //replaces each character in the last name 
-            censored = censored + "*";                                       //with a star to censor the last name
+        	 censored = censored + "*";                                      //with a star to censor the last name
          }
          fileOut.print(censored+"\n");                                       //prints the censored last name to CensoredNames.txt
           
